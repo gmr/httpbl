@@ -12,9 +12,7 @@ Example
     ip_address = '127.5.20.3'
     key = 'my-key'
 
-    # Build the HttpBL Object
     bl = httpbl.HttpBL(key)
-    # Query the honeypot HttpBL
     response = bl.query(ip_address)
 
     print "IP Address: %s" % ip_address

@@ -53,6 +53,7 @@ _NOT_LISTED = {'days_since_last_activity': None,
                'threat_score': 0,
                'type': None}
 
+
 class HttpBL(object):
     """Class based interface for working with the Project Honeypot Http:BL API
 
@@ -75,7 +76,6 @@ class HttpBL(object):
         """
         reversed_address = self._reverse_ip(ip_address)
         return '%s.%s.%s' % (self.key, reversed_address, DNSBL_SUFFIX)
-
 
     def _reverse_ip(self, ip_address):
         """Take an IP address in 127.0.0.1 format and return it as 1.0.0.127
@@ -139,6 +139,6 @@ class HttpBL(object):
         try:
             response = socket.gethostbyname(query_string)
         except socket.gaierror:
-            return NOT_LISTED
+            return _NOT_LISTED
 
         return self._decode_response(response)
