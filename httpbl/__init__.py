@@ -2,12 +2,13 @@
 Project Honeypot Http:BL API Client
 
 """
-__version__ = 0, 0, 2
+__version__ = 0, 0, 3
 
 from httpbl import HttpBL
 
 # Response constants
 from httpbl import COMMENT_SPAMMER
+from httpbl import DESCRIPTIONS
 from httpbl import HARVESTER
 from httpbl import SEARCH_ENGINE
 from httpbl import SUSPICIOUS

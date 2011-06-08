@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='httpbl',
-      version="0.0.2",
+      version="0.0.3",
       description="Project Honeypot Http:BL API Client",
       classifiers=[
         'Development Status :: 3 - Alpha',
