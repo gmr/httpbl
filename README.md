@@ -7,21 +7,21 @@ Requires a Http:BL API key from http://www.projecthoneypot.org/
 Example
 =======
 
-  import httpbl
+    import httpbl
 
-  ip_address = '127.5.20.3'
-  key = 'my-key'
+    ip_address = '127.5.20.3'
+    key = 'my-key'
 
-  # Build the HttpBL Object
-  bl = httpbl.HttpBL(key)
-  # Query the honeypot HttpBL
-  response = bl.query(ip_address)
+    # Build the HttpBL Object
+    bl = httpbl.HttpBL(key)
+    # Query the honeypot HttpBL
+    response = bl.query(ip_address)
 
-  print "IP Address: %s" % ip_address
-  print "Threat Score: %i" % response['threat_score']
-  print "Days since last activity: %i" % response['days_since_last_activity']
-  print "Visitor type: %s" % ', '.join([httpbl.DESCRIPTIONS[type_] \
-                                        for type_ in response['type']])
+    print "IP Address: %s" % ip_address
+    print "Threat Score: %i" % response['threat_score']
+    print "Days since last activity: %i" % response['days_since_last_activity']
+    print "Visitor type: %s" % ', '.join([httpbl.DESCRIPTIONS[type_] \
+                                          for type_ in response['type']])
 
 Response Format
 ===============
