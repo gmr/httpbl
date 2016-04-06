@@ -18,7 +18,7 @@ __email__ = 'gmr@myyearbook.com'
 
 import socket
 
-DNSBL_SUFFIX = 'dnsbl.httpbl.org'
+DNSBL_SUFFIX = 'dnsbl.httpbl.org.'
 
 # Visitor Types
 SEARCH_ENGINE = 0
