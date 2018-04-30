@@ -1,17 +1,31 @@
-from setuptools import setup
+import setuptools
 
-setup(name='httpbl',
-      version="0.0.3",
-      description="Project Honeypot Http:BL API Client",
-      classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-      ],
-      keywords='honeypot',
-      author='Gavin M. Roy',
-      author_email='gmr@myyearbook.com',
-      url='http://github.com/gmr/httpbl',
-      license='BSD',
-      packages=['httpbl'],
-      zip_safe=True)
+from httpbl import __version__
+
+setuptools.setup(
+  name='httpbl',
+  version=__version__,
+  description='Project Honeypot Http:BL API Client',
+  classifiers=[
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Topic :: Database',
+    'Topic :: Software Development :: Libraries'],
+  keywords='honeypot',
+  author='Gavin M. Roy',
+  author_email='gavinmroy@gmail.com',
+  url='https://github.com/gmr/httpbl',
+  license='BSD',
+  py_modules=['httpbl'],
+  package_data={'': ['LICENSE', 'README.rst']},
+  include_package_data=True,
+  zip_safe=True)

@@ -13,10 +13,9 @@ Example:
     print bl.query(ip_address)
 
 """
-__author__ = 'Gavin M. Roy'
-__email__ = 'gmr@myyearbook.com'
-
 import socket
+
+__version__ = '0.4.0'
 
 DNSBL_SUFFIX = 'dnsbl.httpbl.org'
 
@@ -74,8 +73,8 @@ class HttpBL(object):
         :type ip_address: str
         :returns: str
         """
-        reversed_address = self._reverse_ip(ip_address)
-        return '%s.%s.%s' % (self.key, reversed_address, DNSBL_SUFFIX)
+        return '{}.{}.{}'.format(
+            self.key, self._reverse_ip(ip_address), DNSBL_SUFFIX)
 
     def _reverse_ip(self, ip_address):
         """Take an IP address in 127.0.0.1 format and return it as 1.0.0.127
@@ -92,6 +91,7 @@ class HttpBL(object):
 
         :param ip_address: IP address to query
         :type ip_address: str
+        :rtype: dict
         :raises: ValueError
         """
         # Reverse the IP, reassign the octets to integers
@@ -133,11 +133,10 @@ class HttpBL(object):
 
         :param ip_address: IP address to query
         :type ip_address: str
+        :rtype: dict
         """
-        query_string = self._build_query(ip_address)
-
         try:
-            response = socket.gethostbyname(query_string)
+            response = socket.gethostbyname(self._build_query(ip_address))
         except socket.gaierror:
             return _NOT_LISTED
 

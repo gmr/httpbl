@@ -1,0 +1,62 @@
+sudo: false
+language: python
+
+env:
+  global:
+  - PATH=$HOME/.local/bin:$PATH
+  - AWS_DEFAULT_REGION=us-east-1
+  - secure: "JAKDNUvxbzumle6LRAL2VuoiZ8bV/4RHZDp3cs/v9OcRCMkqqD90AzdZkhUfD2lLchf/aXCHVo/ZkCIFi7+u8rHgC84ZlTxRAt2en4gJLTCH0WMOOvPr2i2pi1LpUdLICGBA7gkPPQAa3+b8RtLgrXItfo+oKA7xsm9mHWxgtsg="
+  - secure: "IooRdLP7YAb+XPmrarXlHd38kDFpbV7MSRDUhyIYCVaRhaXDbGDj7mGMmEKl5HsxcHUM195AwUa6gWurdsbdfVUORLixBI18lNi64ktFlfoXj3WlfIN0MygHdg8OKuesSXXdClJZE8twf659KX/2S8mZ2BCBDRLrHMxuPPhEoZc="
+
+stages:
+- test
+- name: upload coverage
+- name: deploy
+  if: tag IS present
+
+install:
+- pip install awscli
+- pip install -r requires/testing.txt
+
+script: nosetests
+
+after_success:
+ - aws s3 cp .coverage "s3://com-gavinroy-travis/httpbl/$TRAVIS_BUILD_NUMBER/.coverage.${TRAVIS_PYTHON_VERSION}"
+
+jobs:
+  include:
+   - python: 2.7
+   - python: 3.5
+   - python: 3.6
+   - python: pypy
+   - python: pypy3
+   - stage: upload coverage
+     if: repo IS gmr/httpbl
+     services: []
+     python: 3.6
+     script:
+     - mkdir coverage
+     - aws s3 cp --recursive s3://com-gavinroy-travis/httpbl/$TRAVIS_BUILD_NUMBER/
+       coverage
+     - cd coverage
+     - coverage combine
+     - cd ..
+     - mv coverage/.coverage .
+     - coverage report
+     after_success: codecov
+   - stage: deploy
+     if: repo IS gmr/httpbl
+     python: 3.6
+     services: []
+     install: true
+     script: true
+     after_success: true
+     deploy:
+       distributions: sdist bdist_wheel
+       provider: pypi
+       user: crad
+       on:
+         tags: true
+         all_branches: true
+       password:
+         secure: "On/c2ras9DrevNlBm/cpJT8qsDBr4uqucUV9JAaC9ug8SJ0w8LUMtPnEad0pErTq7cj6x0e6C3eqSsjqJjEQcF7tpcqdmHIf4EJozOTkgueK+gL+xRnRZ9Bc+zH7iOic2rq+hyCbPPVRQzszImLhm//fOB135Ep6u0YTb1fF8MQ="

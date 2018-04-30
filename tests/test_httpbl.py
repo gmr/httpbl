@@ -1,11 +1,7 @@
 """
 Tests for the HttpBL Class
 """
-__author__ = 'gmr'
-__since__ = '6/8/11'
-
 import sys
-sys.path.insert(0, '../src')
 
 import httpbl
 
