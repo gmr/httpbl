@@ -7,7 +7,7 @@ setuptools.setup(
   version=__version__,
   description='Project Honeypot Http:BL API Client',
   classifiers=[
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: BSD License',
     'Programming Language :: Python :: 2',
