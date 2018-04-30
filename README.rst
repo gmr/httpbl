@@ -11,17 +11,17 @@ Response Format
 
 dict with keys:
 
- - ``days_since_last_activity``
- - ``name``
- - ``threat_score``
- - ``list of visitor types (int)``
+- ``days_since_last_activity``
+- ``name``
+- ``threat_score``
+- ``list of visitor types (int)``
 
 The list types are enumerated in the module:
 
- - ``httpbl.COMMENT_SPAMMER``
- - ``httpbl.HARVESTER``
- - ``httpbl.SEARCH_ENGINE``
- - ``httpbl.SUSPICIOUS``
+- ``httpbl.COMMENT_SPAMMER``
+- ``httpbl.HARVESTER``
+- ``httpbl.SEARCH_ENGINE``
+- ``httpbl.SUSPICIOUS``
 
 Text descriptions are available in the ``httpbl.DESCRIPTIONS`` dict.
 
