@@ -33,9 +33,8 @@ Example
     import httpbl
 
     ip_address = '127.5.20.3'
-    key = 'my-key'
 
-    bl = httpbl.HttpBL(key)
+    bl = httpbl.HttpBL('my-key')
     response = bl.query(ip_address)
 
     print('IP Address: {}'.format(ip_address)

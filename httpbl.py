@@ -3,14 +3,15 @@ Project Honeypot Http:BL API Client
 
 Example:
 
+.. code:: python
+
     import httpbl
 
     ip_address = '127.10.20.5'
-    key = 'my-key'
 
-    print 'Querying %s' % ip_address
-    bl = httpbl.HttpBL(key)
-    print bl.query(ip_address)
+    print 'Querying {}'.format(ip_address)
+    bl = httpbl.HttpBL('my-key')
+    print(bl.query(ip_address))
 
 """
 import socket
@@ -55,6 +56,7 @@ class HttpBL(object):
 
         :param key: Project Honeypot Http:BL Key
         :type key: str
+
         """
         self.key = key
 
@@ -64,11 +66,12 @@ class HttpBL(object):
         :param ip_address: IP address to query
         :type ip_address: str
         :rtype: dict
+
         """
         try:
             return self._decode_response(
                 socket.gethostbyname(self._build_query(ip_address)))
-        except socket.gaierror:
+        except socket.gaierror:  # Not listed
             return {
                 'days_since_last_activity': None,
                 'name': None,
@@ -82,6 +85,7 @@ class HttpBL(object):
         :param ip_address: IP address to query
         :type ip_address: str
         :returns: str
+
         """
         return '{}.{}.{}'.format(
             self.key, self._reverse_ip(ip_address), DNSBL_SUFFIX)
@@ -92,6 +96,7 @@ class HttpBL(object):
         :param ip_address: IP address to query
         :type ip_address: str
         :returns: str
+
         """
         return '.'.join(ip_address.split('.')[::-1])
 
@@ -103,6 +108,7 @@ class HttpBL(object):
         :type ip_address: str
         :rtype: dict
         :raises: ValueError
+
         """
         # Reverse the IP, reassign the octets to integers
         vt, ts, days, rc = [int(o) for o in ip_address.split('.')[::-1]]
