@@ -1,8 +1,6 @@
 """
 Tests for the HttpBL Class
 """
-import sys
-
 import httpbl
 
 
