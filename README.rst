@@ -28,7 +28,7 @@ Text descriptions are available in the ``httpbl.DESCRIPTIONS`` dict.
 Example
 -------
 
-... code:: python
+.. code:: python
 
     import httpbl
 
