@@ -23,6 +23,7 @@ setuptools.setup(
   keywords='honeypot',
   author='Gavin M. Roy',
   author_email='gavinmroy@gmail.com',
+  long_description=open('README.rst').read(),
   url='https://github.com/gmr/httpbl',
   license='BSD',
   py_modules=['httpbl'],

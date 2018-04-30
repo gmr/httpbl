@@ -16,7 +16,7 @@ Example:
 """
 import socket
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 DNSBL_SUFFIX = 'dnsbl.httpbl.org.'
 
