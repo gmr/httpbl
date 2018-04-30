@@ -2,4 +2,5 @@ awscli
 codecov
 coverage
 flake8
+mock
 nose
