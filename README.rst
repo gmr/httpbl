@@ -14,7 +14,7 @@ dict with keys:
 - ``days_since_last_activity``
 - ``name``
 - ``threat_score``
-- ``list of visitor types (int)``
+- ``types`` - a list of visitor types (``int`` values)
 
 The list types are enumerated in the module:
 
