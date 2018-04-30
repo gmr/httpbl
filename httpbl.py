@@ -17,7 +17,7 @@ import socket
 
 __version__ = '0.4.0'
 
-DNSBL_SUFFIX = 'dnsbl.httpbl.org'
+DNSBL_SUFFIX = 'dnsbl.httpbl.org.'
 
 # Visitor Types
 SEARCH_ENGINE = 0
