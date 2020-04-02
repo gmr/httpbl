@@ -125,9 +125,17 @@ class HttpBL(object):
             visitor_types.append(HARVESTER)
         if vt & SUSPICIOUS:
             visitor_types.append(SUSPICIOUS)
+            
+        name = None
+        
+        if not vt:
+            try:
+                name = SEARCH_ENGINES[ts]
+            except IndexError:
+                name = SEARCH_ENGINES[0]
 
         # Return the response dictionary
         return {'days_since_last_activity': days if vt else None,
-                'name': None if vt else SEARCH_ENGINES[ts],
+                'name': name,
                 'threat_score': ts if vt else None,
                 'type': visitor_types if vt else [SEARCH_ENGINE]}

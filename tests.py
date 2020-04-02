@@ -56,6 +56,12 @@ class HttpBLTestCase(unittest.TestCase):
                 'name': 'Google',
                 'threat_score': None,
                 'type': [0]
+            },
+            '127.0.29.0': {
+                'days_since_last_activity': None,
+                'name': None,
+                'threat_score': None,
+                'type': [0]
             }
         }
         for ipaddr, expectation in tests.items():
