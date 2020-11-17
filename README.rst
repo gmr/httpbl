@@ -37,10 +37,10 @@ Example
     bl = httpbl.HttpBL('my-key')
     response = bl.query(ip_address)
 
-    print('IP Address: {}'.format(ip_address)
-    print('Threat Score: {}'.format(response['threat_score'])
-    print('Days since last activity: {}'.format(response['days_since_last_activity'])
-    print('Visitor type: {}'.format(', '.join([httpbl.DESCRIPTIONS[t] for t in response['type']]))
+    print('IP Address: {}'.format(ip_address))
+    print('Threat Score: {}'.format(response['threat_score']))
+    print('Days since last activity: {}'.format(response['days_since_last_activity']))
+    print('Visitor type: {}'.format(', '.join([httpbl.DESCRIPTIONS[t] for t in response['type']])))
 
 .. |Version| image:: https://img.shields.io/pypi/v/httpbl.svg?
    :target: https://pypi.python.org/pypi/httpbl
